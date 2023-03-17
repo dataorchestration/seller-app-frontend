@@ -119,10 +119,10 @@ let storeFields = [
     type: "multi-select",
   },
   {
-    id: "location",
+    id: "store_location",
     title: "Store Location",
     placeholder: "Store Location",
-    type: "location-picker",
+    type: "input",
     required: false,
   },
   {
@@ -202,7 +202,6 @@ const ProviderDetails = () => {
   const [kycDetails, setKycDetails] = useState({});
   const [bankDetails, setBankDetails] = useState({});
   const [storeDetails, setStoreDetails] = useState({
-    location: {},
     categories: [],
     location_availability: "",
     default_cancellable: "",
@@ -249,7 +248,7 @@ const ProviderDetails = () => {
         email: res.providerDetail.storeDetails.supportDetails.email,
         mobile: res.providerDetail.storeDetails.supportDetails.mobile,
         categories: res?.providerDetail?.storeDetails?.categories,
-        location: res?.providerDetail?.storeDetails?.location,
+        store_location: "",
         location_availability:
           res.providerDetail.storeDetails.locationAvailabilityPANIndia == true
             ? "pan_india"
@@ -344,7 +343,7 @@ const ProviderDetails = () => {
                   previewOnly={true}
                   item={item}
                   state={storeDetails}
-                  stateHandler={setStoreDetails}
+                  statehandler={setStoreDetails}
                 />
               ))}
               <div className="flex mt-16">
